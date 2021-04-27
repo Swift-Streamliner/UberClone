@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4056DFCB2637FAAD0060A9B4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056DFCA2637FAAD0060A9B4 /* Extensions.swift */; };
 		40594A452636A23A00492398 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40594A442636A23A00492398 /* AppDelegate.swift */; };
 		40594A472636A23A00492398 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40594A462636A23A00492398 /* SceneDelegate.swift */; };
 		40594A492636A23A00492398 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40594A482636A23A00492398 /* ContentView.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4056DFCA2637FAAD0060A9B4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		40594A412636A23A00492398 /* UberClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40594A442636A23A00492398 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40594A462636A23A00492398 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		40594A5D2636A2AA00492398 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4056DFCA2637FAAD0060A9B4 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4056DFCB2637FAAD0060A9B4 /* Extensions.swift in Sources */,
 				40594A452636A23A00492398 /* AppDelegate.swift in Sources */,
 				40594A5F2636A2D000492398 /* LoginController.swift in Sources */,
 				40594A472636A23A00492398 /* SceneDelegate.swift in Sources */,
