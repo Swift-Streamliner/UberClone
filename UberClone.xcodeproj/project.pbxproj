@@ -17,7 +17,7 @@
 		40594A4E2636A23F00492398 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40594A4D2636A23F00492398 /* Preview Assets.xcassets */; };
 		40594A512636A23F00492398 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40594A4F2636A23F00492398 /* LaunchScreen.storyboard */; };
 		40594A5F2636A2D000492398 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40594A5E2636A2D000492398 /* LoginController.swift */; };
-		40F1D0BB263FEC0300939373 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40F1D0BA263FEC0300939373 /* GoogleService-Info.plist */; };
+		40F1D0E1263FFA4200939373 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40F1D0E0263FFA4200939373 /* GoogleService-Info.plist */; };
 		A6BA167D3343BEFDE9D14667 /* Pods_UberClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E8EE915B7CB21FB8B48C43 /* Pods_UberClone.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +34,7 @@
 		40594A502636A23F00492398 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40594A522636A23F00492398 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40594A5E2636A2D000492398 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		40F1D0BA263FEC0300939373 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		40F1D0E0263FFA4200939373 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A768ED671DAB5335EE2DA253 /* Pods-UberClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberClone.debug.xcconfig"; path = "Target Support Files/Pods-UberClone/Pods-UberClone.debug.xcconfig"; sourceTree = "<group>"; };
 		A9E8EE915B7CB21FB8B48C43 /* Pods_UberClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0C2E10FB26251BE8E5C483 /* Pods-UberClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberClone.release.xcconfig"; path = "Target Support Files/Pods-UberClone/Pods-UberClone.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 				40594A482636A23A00492398 /* ContentView.swift */,
 				40594A4A2636A23F00492398 /* Assets.xcassets */,
 				40594A4F2636A23F00492398 /* LaunchScreen.storyboard */,
-				40F1D0BA263FEC0300939373 /* GoogleService-Info.plist */,
+				40F1D0E0263FFA4200939373 /* GoogleService-Info.plist */,
 				40594A522636A23F00492398 /* Info.plist */,
 				40594A4C2636A23F00492398 /* Preview Content */,
 			);
@@ -214,7 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40594A512636A23F00492398 /* LaunchScreen.storyboard in Resources */,
-				40F1D0BB263FEC0300939373 /* GoogleService-Info.plist in Resources */,
+				40F1D0E1263FFA4200939373 /* GoogleService-Info.plist in Resources */,
 				40594A4E2636A23F00492398 /* Preview Assets.xcassets in Resources */,
 				40594A4B2636A23F00492398 /* Assets.xcassets in Resources */,
 			);
