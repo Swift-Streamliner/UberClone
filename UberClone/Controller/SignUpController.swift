@@ -140,7 +140,7 @@ class SignUpController: UIViewController {
             
             Database.database().reference().child("users").child(uid).updateChildValues(values) { (error, ref) in
                 if let error = error {
-                    print("Cannot create user in database with error \(error)")
+                    print("DEBUG: Cannot create user in database with error \(error.localizedDescription)")
                     return
                 }
                 print("Successfully created user in database.")
