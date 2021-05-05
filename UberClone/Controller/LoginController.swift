@@ -76,6 +76,10 @@ class LoginController: UIViewController {
                 return
             }
             print("User Succesfully Loged In.")
+            guard let homeController = self.navigationController?.viewControllers.first as? HomeController else { return }
+            homeController.configureUI()
+            self.navigationController?.popViewController(animated: true)
+            
         }
     }
     

@@ -24,7 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UINavigationController(rootViewController: HomeController())// UIHostingController(rootView: contentView)
+            let navController = UINavigationController(rootViewController: HomeController())
+            navController.modalPresentationStyle = .fullScreen
+            window.rootViewController = navController// UIHostingController(rootView: contentView)
             self.window = window
             window.makeKeyAndVisible()
         }

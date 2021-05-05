@@ -7,11 +7,13 @@
 
 import UIKit
 import FirebaseAuth
+import MapKit
 
 
 class HomeController : UIViewController {
     
     // MARK: - Properties
+    private let mapView: MKMapView = MKMapView()
     
     // MARK: - Lifecycle
     
@@ -19,7 +21,7 @@ class HomeController : UIViewController {
         super.viewDidLoad()
         configureNavigationBar()
         checkIfUserIsLoggedIn()
-        view.backgroundColor = .red
+        //signOut()
     }
     
     func configureNavigationBar() {
@@ -31,12 +33,13 @@ class HomeController : UIViewController {
     
     func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser?.uid == nil {
-            let nav = UINavigationController(rootViewController: LoginController())
-            nav.modalPresentationStyle = .fullScreen
-            self.present(nav, animated: true, completion: nil)
+            let login = LoginController()
+            //nav.modalPresentationStyle = .fullScreen
+            navigationController?.pushViewController(login, animated: true)
             print("DEBUG: User is not logged in.")
         } else {
             print("DEBUG: User id \(Auth.auth().currentUser?.uid)")
+            configureUI()
         }
     }
     
@@ -46,5 +49,11 @@ class HomeController : UIViewController {
         } catch {
             print("DEBUG: Error sign out.")
         }
+    }
+    
+    // MARK: - Helper functions
+    func configureUI() {
+        view.addSubview(mapView)
+        mapView.frame = view.frame
     }
 }
