@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol LocationInputActivationViewDelegate: class {
+    func presentLocationInputView()
+}
+
 class LocationInputActivationView : UIView {
     
     // MARK: - properties
+    
+    weak var delegate: LocationInputActivationViewDelegate?
     
     private let indication : UIView = {
         let view = UIView()
@@ -41,6 +47,13 @@ class LocationInputActivationView : UIView {
         indication.setDimensions(height: 6, width: 6)
         addSubview(placeHolderLabel)
         placeHolderLabel.centerY(inView: self, leftAnchor: indication.rightAnchor, paddingLeft: 20)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(presentLocationInputView))
+        addGestureRecognizer(tap)
+    }
+    
+    @objc func presentLocationInputView() {
+        delegate?.presentLocationInputView()
     }
     
     required init?(coder: NSCoder) {
