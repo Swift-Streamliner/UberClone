@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import MapKit
 
+private let reuseIdentifier = "LocationCell"
 
 class HomeController : UIViewController {
     
@@ -17,6 +18,9 @@ class HomeController : UIViewController {
     private let locationManager = CLLocationManager()
     private let locationInputActivationView = LocationInputActivationView()
     private let locationInputView = LocationInputView()
+    private let tableView = UITableView()
+    
+    private final let locationInputViewHeight: CGFloat = 200
     
     // MARK: - Lifecycle
     
@@ -69,6 +73,7 @@ class HomeController : UIViewController {
         UIView.animate(withDuration: 2) {
             self.locationInputActivationView.alpha = 1
         }
+        configureTableView()
     }
     
     func configureMapView() {
@@ -81,13 +86,24 @@ class HomeController : UIViewController {
     func configureLocationInputView() {
         locationInputView.delegate = self
         view.addSubview(locationInputView)
-        locationInputView.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 200)
+        locationInputView.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: locationInputViewHeight)
         locationInputView.alpha = 0
         UIView.animate(withDuration: 0.5, animations: {
             self.locationInputView.alpha = 1
         }) { _ in
             print("DEBUG: present table view.")
         }
+    }
+    
+    func configureTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(LocationCell.self, forCellReuseIdentifier: reuseIdentifier)
+        tableView.rowHeight = 60
+        let height = view.frame.height - locationInputViewHeight
+        tableView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: height)
+        tableView.backgroundColor = .red
+        view.addSubview(tableView)
     }
 }
 
@@ -140,4 +156,18 @@ extension HomeController: LocationInputViewDelegate {
             UIView.animate(withDuration: 0.3, animations: { self.locationInputActivationView.alpha = 1 })
         }
     }
+}
+
+extension HomeController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! LocationCell
+        return cell
+    }
+    
+    
 }
