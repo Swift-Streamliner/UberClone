@@ -88,10 +88,12 @@ class HomeController : UIViewController {
         view.addSubview(locationInputView)
         locationInputView.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: locationInputViewHeight)
         locationInputView.alpha = 0
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             self.locationInputView.alpha = 1
         }) { _ in
-            print("DEBUG: present table view.")
+            UIView.animate(withDuration: 0.5, animations: {
+                self.tableView.frame.origin.y = self.locationInputViewHeight
+            })
         }
     }
     
@@ -101,8 +103,7 @@ class HomeController : UIViewController {
         tableView.register(LocationCell.self, forCellReuseIdentifier: reuseIdentifier)
         tableView.rowHeight = 60
         let height = view.frame.height - locationInputViewHeight
-        tableView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: height)
-        tableView.backgroundColor = .red
+        tableView.frame = CGRect(x: 0, y: view.frame.height , width: view.frame.width, height: height)
         view.addSubview(tableView)
     }
 }
@@ -150,8 +151,10 @@ extension HomeController: LocationInputActivationViewDelegate {
 extension HomeController: LocationInputViewDelegate {
     
     func dismissLocationInputView() {
+        locationInputView.removeFromSuperview()
         UIView.animate(withDuration: 0.3, animations: {
             self.locationInputView.alpha = 0
+            self.tableView.frame.origin.y = self.view.frame.height
         }) { _ in
             UIView.animate(withDuration: 0.3, animations: { self.locationInputActivationView.alpha = 1 })
         }
