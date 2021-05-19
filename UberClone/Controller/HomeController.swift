@@ -102,6 +102,7 @@ class HomeController : UIViewController {
         tableView.dataSource = self
         tableView.register(LocationCell.self, forCellReuseIdentifier: reuseIdentifier)
         tableView.rowHeight = 60
+        tableView.tableFooterView = UIView()
         let height = view.frame.height - locationInputViewHeight
         tableView.frame = CGRect(x: 0, y: view.frame.height , width: view.frame.width, height: height)
         view.addSubview(tableView)
@@ -151,20 +152,31 @@ extension HomeController: LocationInputActivationViewDelegate {
 extension HomeController: LocationInputViewDelegate {
     
     func dismissLocationInputView() {
-        locationInputView.removeFromSuperview()
+        
         UIView.animate(withDuration: 0.3, animations: {
             self.locationInputView.alpha = 0
             self.tableView.frame.origin.y = self.view.frame.height
         }) { _ in
+            self.locationInputView.removeFromSuperview()
             UIView.animate(withDuration: 0.3, animations: { self.locationInputActivationView.alpha = 1 })
         }
     }
 }
 
+// MARK: - UITableViewDelegate / UITableViewDataSource
+
 extension HomeController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Test"
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        return section == 0 ? 2 : 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
