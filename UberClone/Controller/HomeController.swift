@@ -29,6 +29,7 @@ class HomeController : UIViewController {
         configureNavigationBar()
         checkIfUserIsLoggedIn()
         enableLocationServices()
+        fetchUserData()
         //signOut()
     }
     
@@ -38,6 +39,10 @@ class HomeController : UIViewController {
     }
     
     // MARK: - API
+    
+    func fetchUserData() {
+        Service.shared.fetchUserData()
+    }
     
     func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser?.uid == nil {
