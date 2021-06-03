@@ -22,6 +22,7 @@
 		40594A5F2636A2D000492398 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40594A5E2636A2D000492398 /* LoginController.swift */; };
 		4059C8DF26675C3D0065C424 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4059C8DE26675C3D0065C424 /* User.swift */; };
 		4078BC4C264BA3D800642710 /* LocationInputActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4078BC4B264BA3D800642710 /* LocationInputActivationView.swift */; };
+		40938B352668B0AE0037EEF8 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40938B342668B0AE0037EEF8 /* LocationHandler.swift */; };
 		40A0294F264D4C430066B70D /* LocationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A0294E264D4C430066B70D /* LocationInputView.swift */; };
 		40F1D0E1263FFA4200939373 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40F1D0E0263FFA4200939373 /* GoogleService-Info.plist */; };
 		A6BA167D3343BEFDE9D14667 /* Pods_UberClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E8EE915B7CB21FB8B48C43 /* Pods_UberClone.framework */; };
@@ -45,6 +46,7 @@
 		40594A5E2636A2D000492398 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4059C8DE26675C3D0065C424 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4078BC4B264BA3D800642710 /* LocationInputActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputActivationView.swift; sourceTree = "<group>"; };
+		40938B342668B0AE0037EEF8 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		40A0294E264D4C430066B70D /* LocationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputView.swift; sourceTree = "<group>"; };
 		40F1D0E0263FFA4200939373 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A768ED671DAB5335EE2DA253 /* Pods-UberClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberClone.debug.xcconfig"; path = "Target Support Files/Pods-UberClone/Pods-UberClone.debug.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				4056DFCA2637FAAD0060A9B4 /* Extensions.swift */,
+				40938B342668B0AE0037EEF8 /* LocationHandler.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				40188D60263C371200B40128 /* AuthButton.swift in Sources */,
 				40594A452636A23A00492398 /* AppDelegate.swift in Sources */,
 				40594A5F2636A2D000492398 /* LoginController.swift in Sources */,
+				40938B352668B0AE0037EEF8 /* LocationHandler.swift in Sources */,
 				40A0294F264D4C430066B70D /* LocationInputView.swift in Sources */,
 				402F70C32654EE8B00FFA13E /* Service.swift in Sources */,
 				4078BC4C264BA3D800642710 /* LocationInputActivationView.swift in Sources */,

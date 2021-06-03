@@ -7,10 +7,13 @@
 
 import UIKit
 import Firebase
+import GeoFire
 
 class SignUpController: UIViewController {
     
     // MARK: - Properties
+    
+    private let location = LocationHandler.shared.locationManager.location
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -133,21 +136,36 @@ class SignUpController: UIViewController {
                 return
             }
             guard let uid = result?.user.uid else { return }
+            
             let values = [
                 "email": email,
                 "fullname": fullname,
             "accountType": accountTypeIndex] as [String: Any]
             
-            Database.database().reference().child("users").child(uid).updateChildValues(values) { (error, ref) in
-                if let error = error {
-                    print("DEBUG: Cannot create user in database with error \(error.localizedDescription)")
-                    return
+            if accountTypeIndex == 1 {
+                let geoFire = GeoFire(firebaseRef: REF_DRIVER_LOCATIONS)
+                guard let location = self.location else { return }
+                geoFire.setLocation(location, forKey: uid) { error in
+                    self.uploadUserDataAndShowHomeController(uid: uid, values: values)
                 }
-                print("Successfully created user in database.")
-                guard let homeController = self.navigationController?.viewControllers.first as? HomeController else { return }
-                homeController.configureUI()
-                self.navigationController?.popViewController(animated: true)
+            } else {
+                self.uploadUserDataAndShowHomeController(uid: uid, values: values)
             }
+            
+            
+        }
+    }
+    
+    func uploadUserDataAndShowHomeController(uid: String, values: [String: Any]) {
+        REF_USERS.child(uid).updateChildValues(values) { (error, ref) in
+            if let error = error {
+                print("DEBUG: Cannot create user in database with error \(error.localizedDescription)")
+                return
+            }
+            print("Successfully created user in database.")
+            guard let homeController = self.navigationController?.viewControllers.first as? HomeController else { return }
+            homeController.configureUI()
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }
