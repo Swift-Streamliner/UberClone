@@ -30,5 +30,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:312241312748:ios:e8b6c1a1049531ee1326c9</string>
+	<key>DATABASE_URL</key>
+	<string>https://uber-ios-b2626-default-rtdb.europe-west1.firebasedatabase.app</string>
 </dict>
 </plist>

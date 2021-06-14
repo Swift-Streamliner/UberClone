@@ -20,7 +20,8 @@ struct Service {
         print("DEBUG: fetchUserData for uid = \(uid)")
         REF_USERS.child(uid).observeSingleEvent(of: .value) { (snapshot) in
             guard let dictionary = snapshot.value as? [String: Any] else { return }
-            completion(User(dictionary: dictionary))
+            let userUid = snapshot.key
+            completion(User(uid: userUid, dictionary: dictionary))
         }
     }
     
