@@ -167,7 +167,7 @@ class SignUpController: UIViewController {
             }
             print("Successfully created user in database.")
             guard let homeController = self.navigationController?.viewControllers.first as? HomeController else { return }
-            homeController.configureUI()
+            homeController.configure()
             self.navigationController?.popViewController(animated: true)
         }
     }

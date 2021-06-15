@@ -35,8 +35,6 @@ class HomeController : UIViewController {
         configureNavigationBar()
         checkIfUserIsLoggedIn()
         enableLocationServices()
-        fetchUserData()
-        fetchDrivers()
         //signOut()
     }
     
@@ -87,7 +85,7 @@ class HomeController : UIViewController {
             print("DEBUG: User is not logged in.")
         } else {
             print("DEBUG: User id \(Auth.auth().currentUser?.uid ?? "nil")")
-            configureUI()
+            configure()
         }
     }
     
@@ -102,6 +100,12 @@ class HomeController : UIViewController {
     }
     
     // MARK: - Helper functions
+    
+    func configure() {
+        configureUI()
+        fetchUserData()
+        fetchDrivers()
+    }
     
     func configureUI() {
         configureMapView()
