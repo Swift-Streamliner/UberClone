@@ -25,7 +25,7 @@ class HomeController : UIViewController {
             locationInputView.user = user
         }
     }
-    
+    private var searchResults = [MKPlacemark]()
     private final let locationInputViewHeight: CGFloat = 200
     
     // MARK: - Lifecycle
@@ -156,6 +156,27 @@ class HomeController : UIViewController {
     }
 }
 
+// MARK: - Map Helper functions
+private extension HomeController  {
+    
+    func searchBy(naturalLanguageQuery: String, completion: @escaping([MKPlacemark]) -> Void) {
+        var results = [MKPlacemark]()
+        
+        let request = MKLocalSearch.Request()
+        request.region = mapView.region
+        request.naturalLanguageQuery = naturalLanguageQuery
+        
+        let search = MKLocalSearch(request: request)
+        search.start { (response, error) in
+            guard let response = response else { return }
+            response.mapItems.forEach { item in
+                results.append(item.placemark)
+            }
+            completion(results)
+        }
+    }
+}
+
 // MARK: - MKMapViewDelegate
 
 extension HomeController: MKMapViewDelegate {
@@ -206,6 +227,13 @@ extension HomeController: LocationInputActivationViewDelegate {
 
 extension HomeController: LocationInputViewDelegate {
     
+    func executeSearch(query: String) {
+        searchBy(naturalLanguageQuery: query){ (results) in
+            print("DEBUG: Search did completed...")
+            self.searchResults = results
+        }
+    }
+    
     func dismissLocationInputView() {
         
         UIView.animate(withDuration: 0.3, animations: {
@@ -231,7 +259,7 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 2 : 5
+        return section == 0 ? 2 : searchResults.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
